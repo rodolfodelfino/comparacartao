@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Comparativo de Taxas</title>
+</head>
+
+<body>
+
+    <h1>COMPARATIVO DE TAXAS</h1>
+
+    <div>
+        <form action="" method="get" onsubmit="event.preventDefault();" onclick="calcular();">
+            <div id="principal">
+                <label for="">
+                    <select name="" id="empresa">
+                        <option value="mercado">Mercado Pago</option>
+                        <option value="pagseguro">Pagseguro</option>
+                        <option value="Sumup">Sumup</option>
+                        <option value="Ton">Ton Ultra</option>
+                    </select>
+
+                    <input type="number" placeholder="Valor da venda" id="vlVenda">
+
+                    <input type="number" placeholder="Numero de Parcelas" id="nParcelas">
+
+
+                </label>
+
+                <label for="">
+                    &nbsp;
+                    <input type="submit" value="calcular" onsubmit="event.preventDefault();">
+                </label>
+
+
+
+
+
+            </div>
+
+
+
+
+        </form>
+    </div>
+
+    <div id="res">
+
+        
+
+    </div>
+
+    <script>
+
+        function calcular() {
+            var txAntec = 5.31
+            var mp1 = 4.74
+            var mp2 = 0.02295
+            var mp3 = 0.0199
+            var mp4 = 0.028325
+            var mp5 = 0.02732
+            var mp6 = 0.0166
+            var mp7 = 0.016057
+            var mp8 = 0.015625
+            var mp9 = 0.015255
+            var mp10 = 0.01493
+            var mp11 = 0.014654
+            var mp12 = 0.0144
+
+            var txAntec = 0.0559
+            var ps1 = 0.0499
+            var ps2 = 0.0216
+            var ps3 = 0.019
+            var ps4 = 0.017625
+            var ps5 = 0.01676
+            var ps6 = 0.016133
+            var ps7 = 0.015657
+            var ps8 = 0.015275
+            var ps9 = 0.014944
+            var ps10 = 0.01465
+            var ps11 = 0.0144
+            var ps12 = 0.014167
+
+            var sum1 = 0.049
+            var sum2 = 0.049
+            var sum3 = 0.037
+            var sum4 = 0.03123
+            var sum5 = 0.0276
+            var sum6 = 0.02516
+            var sum7 = 0.02342
+            var sum8 = 0.022125
+            var sum9 = 0.021111
+            var sum10 = 0.0201
+            var sum11 = 0.01936
+            var sum12 = 0.01866
+
+            var ton1 = 0.0287
+            var ton2 = 0.02205
+            var ton3 = 0.0258
+            var ton4 = 0.0148
+            var ton5 = 0.01334
+            var ton6 = 0.012366
+            var ton7 = 0.016857
+            var ton8 = 0.011163
+            var ton9 = 0.010755
+            var ton10 = 0.01044
+            var ton11 = 0.010173
+            var ton12 = 0.009958
+
+            var empresa = window.document.getElementById('empresa')
+            var vlVenda = window.document.getElementById('vlVenda')
+            var nParcelas = window.document.getElementById('nParcelas')
+            var vlVenda = Number(vlVenda.value)
+            var nParcelas = Number(nParcelas.value)
+
+            if (empresa.value == "mercado") {
+                fMercado();
+
+            }
+
+            if (empresa.value == "Sumup") {
+                fSumup();
+            }
+
+            if (empresa.value == "pagseguro") {
+                fPagseguro();
+            }
+
+            if (empresa.value == "Ton") {
+                fTon();
+            }
+
+
+
+        }
+
+        function fMercado() {
+
+            var empresa = window.document.getElementById('empresa')
+            var vlVenda = window.document.getElementById('vlVenda')
+            var nParcelas = window.document.getElementById('nParcelas')
+            var vlVenda = Number(vlVenda.value)
+            var nParcelas = Number(nParcelas.value)
+
+            var txAntec = 5.31
+            var mp1 = 0.0474
+            var mp2 = 0.02295
+            var mp3 = 0.0199
+            var mp4 = 0.028325
+            var mp5 = 0.02732
+            var mp6 = 0.0166
+            var mp7 = 0.016057
+            var mp8 = 0.015625
+            var mp9 = 0.015255
+            var mp10 = 0.01493
+            var mp11 = 0.014654
+            var mp12 = 0.0144
+
+            if (nParcelas == 1) {
+
+
+                var taxa = vlVenda * mp1
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 2) {
+
+
+                var taxa = vlVenda * mp2 * 2 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 3) {
+
+
+                var taxa = vlVenda * mp3 * 3 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 4) {
+
+
+                var taxa = vlVenda * mp4 * 4 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 5) {
+
+
+                var taxa = vlVenda * mp5 * 5 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 6) {
+
+
+                var taxa = vlVenda * mp6 * 6 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 7) {
+
+
+                var taxa = vlVenda * mp7 * 7 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 8) {
+
+
+                var taxa = vlVenda * mp8 * 8 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 9) {
+
+
+                var taxa = vlVenda * mp9 * 9 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 10) {
+
+
+                var taxa = vlVenda * mp10 * 10 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 11) {
+
+
+                var taxa = vlVenda * mp11 * 11 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 12) {
+
+
+                var taxa = vlVenda * mp12 * 12 + vlVenda * 0.0531
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> MERCADO PAGO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+
+
+
+        }
+
+        function fPagseguro() {
+
+            var empresa = window.document.getElementById('empresa')
+            var vlVenda = window.document.getElementById('vlVenda')
+            var nParcelas = window.document.getElementById('nParcelas')
+            var vlVenda = Number(vlVenda.value)
+            var nParcelas = Number(nParcelas.value)
+
+            var ps1 = 0.0499
+            var ps2 = 0.0216
+            var ps3 = 0.019
+            var ps4 = 0.017625
+            var ps5 = 0.01676
+            var ps6 = 0.016133
+            var ps7 = 0.015657
+            var ps8 = 0.015275
+            var ps9 = 0.014944
+            var ps10 = 0.01465
+            var ps11 = 0.0144
+            var ps12 = 0.014167
+
+            if (nParcelas == 1) {
+
+
+                var taxa = vlVenda * ps1
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 2) {
+
+
+                var taxa = (vlVenda * ps2) * 2 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 3) {
+
+
+                var taxa = (vlVenda * ps3) * 3 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 4) {
+
+
+                var taxa = (vlVenda * ps4) * 4 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 5) {
+
+
+                var taxa = (vlVenda * ps5) * 5 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 6) {
+
+
+                var taxa = (vlVenda * ps6) * 6 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 7) {
+
+
+                var taxa = (vlVenda * ps7) * 7 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 8) {
+
+
+                var taxa = (vlVenda * ps8) * 8 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 9) {
+
+
+                var taxa = (vlVenda * ps9) * 9 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 10) {
+
+
+                var taxa = (vlVenda * ps10) * 10 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 11) {
+
+
+                var taxa = (vlVenda * ps11) * 11 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 12) {
+
+
+                var taxa = (vlVenda * ps12) * 12 + vlVenda * 0.0559
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> PAG SEGURO</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+
+        }
+
+        function fSumup() {
+
+            var empresa = window.document.getElementById('empresa')
+            var vlVenda = window.document.getElementById('vlVenda')
+            var nParcelas = window.document.getElementById('nParcelas')
+            var vlVenda = Number(vlVenda.value)
+            var nParcelas = Number(nParcelas.value)
+
+            var sum1 = 0.049
+            var sum2 = 0.049
+            var sum3 = 0.037
+            var sum4 = 0.03123
+            var sum5 = 0.0276
+            var sum6 = 0.02516
+            var sum7 = 0.02342
+            var sum8 = 0.022125
+            var sum9 = 0.021111
+            var sum10 = 0.0201
+            var sum11 = 0.01936
+            var sum12 = 0.01866
+
+
+            if (nParcelas == 1) {
+
+
+                var taxa = vlVenda * sum1
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 2) {
+
+
+                var taxa = vlVenda * sum2 * 2
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 3) {
+
+
+                var taxa = vlVenda * sum3 * 3
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 4) {
+
+
+                var taxa = vlVenda * sum4 * 4
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 5) {
+
+
+                var taxa = vlVenda * sum5 * 5
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 6) {
+
+
+                var taxa = vlVenda * sum6 * 6
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 7) {
+
+
+                var taxa = vlVenda * sum7 * 7
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 8) {
+
+
+                var taxa = vlVenda * sum8 * 8
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 9) {
+
+
+                var taxa = vlVenda * sum9 * 9
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 10) {
+
+
+                var taxa = vlVenda * sum10 * 10
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 11) {
+
+
+                var taxa = vlVenda * sum11 * 11
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 12) {
+
+
+                var taxa = vlVenda * sum12 * 12
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> SUMUP</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+
+        }
+
+        function fTon() {
+
+            var empresa = window.document.getElementById('empresa')
+            var vlVenda = window.document.getElementById('vlVenda')
+            var nParcelas = window.document.getElementById('nParcelas')
+            var vlVenda = Number(vlVenda.value)
+            var nParcelas = Number(nParcelas.value)
+
+            var ton1 = 0.0287
+            var ton2 = 0.02205
+            var ton3 = 0.0258
+            var ton4 = 0.0148
+            var ton5 = 0.01334
+            var ton6 = 0.012366
+            var ton7 = 0.016857
+            var ton8 = 0.011163
+            var ton9 = 0.010755
+            var ton10 = 0.01044
+            var ton11 = 0.010173
+            var ton12 = 0.009958
+
+
+            if (nParcelas == 1) {
+
+
+                var taxa = vlVenda * ton1
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 2) {
+
+
+                var taxa = vlVenda * ton2 * 2
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 3) {
+
+
+                var taxa = vlVenda * ton3 * 3
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 4) {
+
+
+                var taxa = vlVenda * ton4 * 4
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 5) {
+
+
+                var taxa = vlVenda * ton5 * 5
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 6) {
+
+
+                var taxa = vlVenda * ton6 * 6
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 7) {
+
+
+                var taxa = vlVenda * ton7 * 7
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 8) {
+
+
+                var taxa = vlVenda * ton8 * 8
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 9) {
+
+
+                var taxa = vlVenda * ton9 * 9
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 10) {
+
+
+                var taxa = vlVenda * ton10 * 10
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 11) {
+
+
+                var taxa = vlVenda * ton11 * 11
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+            if (nParcelas == 12) {
+
+
+                var taxa = vlVenda * ton12 * 12
+                var taxa = taxa.toFixed(2)
+                var vlRecebido = vlVenda - taxa
+                var vlRecebido = vlRecebido.toFixed(2)
+
+                res.innerHTML = ` <h1> TON ULTRA</H1> <p> Valor da venda: R$ ${vlVenda}</p> <p> Número de Parcelas: ${nParcelas} </p> <p>Valor das taxas são de R$ ${taxa} </p> <p> Valor recebido R$ ${vlRecebido} `
+
+
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
